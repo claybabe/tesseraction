@@ -138,7 +138,8 @@ print("generating models... done.")
 train(models, 12, 1)
 
 import os
-now = str(datetime.datetime.now())
+import re
+now = re.sub("[\:]","-", str(datetime.datetime.now()))
 model_path = "models/"+now+"/"
 
 os.makedirs(model_path)
