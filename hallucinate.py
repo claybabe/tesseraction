@@ -169,8 +169,8 @@ def draw():
             color = "white"
         else:
             color = "black"
-        selected_posisiton = selected.index(1)
-        canvas.create_oval(pixels[selected_posisiton][0]-pixels[74][2], pixels[selected_posisiton][1]-pixels[74][2], pixels[selected_posisiton][2]+pixels[74][2], pixels[selected_posisiton][3]+pixels[74][2], outline=color, width=pixels[74][1])
+        for selected_position in [i for i, x in enumerate(selected) if x == 1]:
+            canvas.create_oval(pixels[selected_position][0]-pixels[74][2], pixels[selected_position][1]-pixels[74][2], pixels[selected_position][2]+pixels[74][2], pixels[selected_position][3]+pixels[74][2], outline=color, width=pixels[74][1])
     #update the canvas holder
     tk.update()
     
