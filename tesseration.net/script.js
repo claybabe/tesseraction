@@ -39,9 +39,9 @@ pixels.fill([0,0,0,0]);
 var expected_play = [1,0];
 var turn = 1;
 
-function calculate_pixels(event){
+function calculate_pixels(size){
 	
-	cHeight=Math.min(event.width, event.height);
+	cHeight=size;
     cellSize = cHeight / 29;
 
     //positions
@@ -246,8 +246,9 @@ function draw(){
 
 //loop through the positions and see if mouse click was on a board position
 function click(event){
+	const finger = cellSize;
 	for(var i=0; i < 29; i++){
-        if(event.x > pixels[i][0]-pixels[74][0] && event.x < pixels[i][2]+pixels[74][0] && event.y > pixels[i][1]-pixels[74][0] && event.y < pixels[i][3]+pixels[74][0]){
+        if(event.x > pixels[i][0]-finger && event.x < pixels[i][2]+finger && event.y > pixels[i][1]-finger && event.y < pixels[i][3]+finger){
             //clicked registered on the i'th position, process it
             clicked(i);
             break;
@@ -321,10 +322,18 @@ function canvasMouseDown(event) {
 const sess = new onnx.InferenceSession();
 const loadingModelPromise = sess.loadModel("tesseraction.onnx");
 
-
+function resizeCanvas(){
+	const width = window.innerWidth;
+	const height = window.innerHeight;
+	const size = Math.min(width, height) - 38;
+	
+	canvas.width = size;
+	canvas.height = size;
+	calculate_pixels(size);
+}
 
 loadingModelPromise.then(() => {
-	calculate_pixels({width:640,height:640});
-	//canvas.addEventListener("resize", calculate_pixels);
+	resizeCanvas();
+	window.addEventListener("resize", resizeCanvas);
 	canvas.addEventListener("mousedown", canvasMouseDown);
 })
