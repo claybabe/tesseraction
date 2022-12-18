@@ -153,7 +153,9 @@ function create_rectangle(x1, y1, x2, y2, outline, fill, width){
 	ctx.fillStyle = fill;
 	ctx.rect(x1, y1, x2, y2);
 	ctx.stroke();
-	ctx.fill();
+	if(fill !== false){
+		ctx.fill();
+	}
 }
 
 function create_arc(x1, y1, x2, y2, start, end, width, clockwise){
@@ -240,6 +242,10 @@ function draw(){
 	for(var i=0; i < selected.length; i++){
 		if(selected[i] == 1){
 			create_circle(pixels[i][0]+pixels[74][2]/4, pixels[i][1]+pixels[74][2]/4, pixels[74][2]*1.25, pixels[74][1], color);
+		}
+		if(selected[i] == -1){
+			
+			create_rectangle(pixels[i][0]-cellSize, pixels[i][1]-cellSize, cellSize*2.5,  cellSize*2.5, color, false, pixels[74][1]);
 		}
 	}
 	
