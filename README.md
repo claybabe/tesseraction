@@ -13,9 +13,9 @@ a simulation of the universe.
 ## local
 `cd tesseraction.net`
 
-`python -m http.server 80`
+`python -m http.server 8080`
 
-visit `localhost` in your browser
+visit `localhost:8080` in your browser
 
 
 ## dev
