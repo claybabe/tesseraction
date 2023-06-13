@@ -16,3 +16,23 @@ a simulation of the universe.
 `python -m http.server 80`
 
 visit `localhost` in your browser
+
+
+## dev
+
+# Debian 12
+`sudo apt install git python3.11-venv python3-tk`
+
+`git clone https://github.com/theOGbaber/tesseraction`
+
+`cd tesseraction`
+
+`python3 -m venv env`
+
+`source env/bin/activate`
+
+`pip install -r requirements.txt`
+
+
+`python hallucinate.py`
+
