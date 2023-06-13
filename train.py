@@ -19,7 +19,7 @@ n_in, n_out = 177, 148
 
 class TrainingData(Dataset):
     def __init__(self):
-        xy = np.loadtxt("data/trainingdata.csv", delimiter=",", dtype=np.int)
+        xy = np.loadtxt("data/trainingdata.csv", delimiter=",", dtype=np.int32)
         self.len = xy.shape[0]
         self.x_data = torch.tensor(xy[:,:n_in], device=device, dtype=torch.float)
         self.y_data = torch.tensor(xy[:,-n_out:], device=device, dtype=torch.float)
