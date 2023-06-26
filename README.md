@@ -23,7 +23,7 @@ visit `localhost:8080` in your browser
 # Debian 12
 `sudo apt install git python3.11-venv python3-tk`
 
-`git clone https://github.com/theOGbaber/tesseraction`
+`git clone https://github.com/claybabe/tesseraction`
 
 `cd tesseraction`
 
