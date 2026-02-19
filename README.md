@@ -6,10 +6,6 @@ a puzzle,
 a simulation of the universe.
 
 
-## live
-[tesseraction.net/play](https://tesseraction.net/play)
-
-
 ## local
 `cd tesseraction.net`
 
